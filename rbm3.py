@@ -88,9 +88,8 @@ class RBM(object):
         # Calculate probability that a certain pixel in training data is on:
         p_unit_on_arr = np.mean(data, axis=0)
         # Set visible layer bias weights to log(p/(1-p))
-        # TODO: divide by zero - error by following line. Why? Seems to be python 2.7 floor division problem, but my
-        # solutions (convert array to float, multiply possible values of 1 by .99999) do not work. Code runs anyway
         self.weightsvis_b = np.log(p_unit_on_arr.astype(float) / (1 - (.9999 * p_unit_on_arr)))
+        # Multiply p by .9999 to avoid dividing by zero
         self.weightsvis_b = self.weightsvis_b.reshape((1, 900))
         # Record learning rate
         self.learn_rate = copy.copy(learn_rate)
