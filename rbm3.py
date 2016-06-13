@@ -246,7 +246,7 @@ class RBM(object):
 
         for index in index_list:
             file_name = "{}_recfield_hl1_node_{}".format(self.name, index)
-            basiccontourplot(self.weights1[:, index], file_name)
+            basicplot(self.weights1[:, index], file_name)
 
 
 """Some custom functions used in RBM training and plotting."""
